@@ -8,24 +8,25 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./vpdbdata:/var/lib/mysql
-    port: 3306:3306
+    ports: 
+      - 3306:3306
     environment:
       MYSQL_ROOT_PASSWORD: admin123
       MYSQL_DATABASE: accounts
 
   vprocache01:
-    container_name: vprocache01
+    image: memcached
     ports:
       - 11211:11211
 
   vpromq01:
-    container_name: vpromq01
+    image: rabbitmq
     ports:
       - 15672:15672
     environment:
       - RABBITMQ_DEFAULT_USER=guest
       - RABBITMQ_DEFAULT_PASS=guest
-  
+
   vproapp:
     image: sabirchoudhury001/vprofileapp
     container_name: vproapp
@@ -45,7 +46,7 @@ services:
       dockerfile: Dockerfile
     ports:
       - 80:80
-      
+
 volumes:
   vpappdata: {}
   vpdbdata: {}
