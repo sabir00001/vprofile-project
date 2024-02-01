@@ -1,7 +1,7 @@
 FROM nginx
 LABEL "Project"="Vprofile"
 LABEL "Owner"="Sabir"
-RUN rm -rf /etc/nginx/nginx.conf*
-ADD nginvproapp.conf /etc/nginx/nginx.conf
+RUN rm -rf /etc/nginx/conf.d/default.conf
+COPY nginvproapp.conf /etc/nginx/conf.d/nginx.conf
 
 EXPOSE 80
