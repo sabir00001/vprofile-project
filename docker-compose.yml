@@ -7,7 +7,7 @@ services:
       context: ./Docker-files/db
       dockerfile: Dockerfile
     volumes:
-      - ./vprdbdata:/var/lib/mysql
+      - ./vpdbdata:/var/lib/mysql
     port: 3306:3306
     environment:
       MYSQL_ROOT_PASSWORD: admin123
@@ -45,3 +45,7 @@ services:
       dockerfile: Dockerfile
     ports:
       - 80:80
+      
+volumes:
+  vpappdata: {}
+  vpdbdata: {}
