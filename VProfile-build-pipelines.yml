@@ -26,7 +26,7 @@ stages:
   - job: Build
     displayName: Build
     pool:
-      vmImage: devops-agent-01
+      name: devops-agent-01
     steps:
     - task: DockerCompose@0
       displayName: Build and push an image to container registry
