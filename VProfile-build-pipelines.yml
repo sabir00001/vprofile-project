@@ -13,7 +13,7 @@ variables:
   dockerRegistryServiceConnection: 'a6704a87-8a41-4b42-b467-dd32e61c5b91'
   imageRepository: 'vprofile'
   containerRegistry: 'akspractice01.azurecr.io'
-  dockerfilePath: '$$(Build.SourcesDirectory)/docker-compose.yml'
+  dockerfilePath: '$(Build.SourcesDirectory)/docker-compose.yml'
   tag: '$(Build.BuildId)'
 
   # Agent VM image name
@@ -34,5 +34,5 @@ stages:
         containerregistrytype: 'Azure Container Registry'
         azureSubscription: 'aks-rg-connection'
         azureContainerRegistry: '{"loginServer":"akspractice01.azurecr.io", "id" : "/subscriptions/410c1a95-68f7-4b30-9fdc-964a1658482d/resourceGroups/AKS-Practice/providers/Microsoft.ContainerRegistry/registries/akspractice01"}'
-        dockerComposeFile: '$(dockerfilePath)'
+        dockerComposeFile: '$(Build.SourcesDirectory)/docker-compose.yml'
         action: 'Run a Docker Compose command'
